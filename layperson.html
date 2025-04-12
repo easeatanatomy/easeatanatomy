@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anatomy for All</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div data-include="shared/header.html"></div>
+  <section>
+    <h2>Anatomy for All</h2>
+    <ul>
+      <li>Everyday anatomy: digestion, goosebumps, and joints</li>
+      <li>Myth vs Medicine: busting common myths</li>
+      <li>Kid's section: stories and coloring pages</li>
+      <li>Simple lessons with visuals and analogies</li>
+    </ul>
+    <form id="feedbackForm" onsubmit="submitFeedback(); return false;">
+      <h3>Your Feedback</h3>
+      <input type="text" placeholder="Your Name" required>
+      <textarea placeholder="Your Feedback" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  <div data-include="shared/footer.html"></div>
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include')).then(res => res.text()).then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>
