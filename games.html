@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gamified Learning Hub</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div data-include="shared/header.html"></div>
+  <section>
+    <h2>Gamified Learning Hub</h2>
+    <ul>
+      <li>Play anatomy quiz duels solo or in teams</li>
+      <li>Download printable games like Nerve Bingo</li>
+      <li>Compete for monthly badges</li>
+      <li>Climb the “Anatomy Grandmaster” leaderboard</li>
+    </ul>
+    <form id="feedbackForm" onsubmit="submitFeedback(); return false;">
+      <h3>Your Feedback</h3>
+      <input type="text" placeholder="Your Name" required>
+      <textarea placeholder="Your Feedback" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  <div data-include="shared/footer.html"></div>
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include')).then(res => res.text()).then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>
