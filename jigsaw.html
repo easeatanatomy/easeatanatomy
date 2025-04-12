@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jigsaw Learning Lab</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div data-include="shared/header.html"></div>
+  <section>
+    <h2>Jigsaw Learning Lab</h2>
+    <ul>
+      <li>Assign system roles (muscle, nerve, bone)</li>
+      <li>Collaborate to build complete systems</li>
+      <li>Submit group summary charts</li>
+      <li>Download facilitator guides for classrooms</li>
+    </ul>
+    <form id="feedbackForm" onsubmit="submitFeedback(); return false;">
+      <h3>Your Feedback</h3>
+      <input type="text" placeholder="Your Name" required>
+      <textarea placeholder="Your Feedback" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  <div data-include="shared/footer.html"></div>
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include')).then(res => res.text()).then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>
