@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedagogical Foundation</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div data-include="shared/header.html"></div>
+  <section>
+    <h2>Pedagogical Foundation</h2>
+    <ul>
+      <li>Bloom’s Taxonomy: Remember → Understand → Apply → Analyze → Evaluate → Create</li>
+      <li>Miller’s Pyramid: Knows → Knows How → Shows How → Does</li>
+    </ul>
+    <form id="feedbackForm" onsubmit="submitFeedback(); return false;">
+      <h3>Your Feedback</h3>
+      <input type="text" placeholder="Your Name" required>
+      <textarea placeholder="Your Feedback" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  <div data-include="shared/footer.html"></div>
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include')).then(res => res.text()).then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>
