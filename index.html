@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome | Dr. Bhawana Joshi</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div data-include="shared/header.html"></div>
+  <section>
+    <h2>Welcome to the Anatomy Learning Site</h2>
+    <p>This is the creative educational website by Dr. Bhawana Joshi to make anatomy exciting and interactive for all.</p>
+    <ul>
+      <li>Explore 3D Models</li>
+      <li>Watch Clinical Videos</li>
+      <li>Play Anatomy Games</li>
+      <li>Ask Dr. Bhawana</li>
+    </ul>
+    <form id="feedbackForm" onsubmit="submitFeedback(); return false;">
+      <h3>Your Feedback</h3>
+      <input type="text" placeholder="Your Name" required>
+      <textarea placeholder="Your Feedback" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  <div data-include="shared/footer.html"></div>
+  <script>
+    document.querySelectorAll('[data-include]').forEach(el => {
+      fetch(el.getAttribute('data-include')).then(res => res.text()).then(data => el.innerHTML = data);
+    });
+  </script>
+</body>
+</html>
